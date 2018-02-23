@@ -3,7 +3,7 @@ Create a free account in CARTO:
 https://carto.com/get-started/
 
 
-# Load on Carto
+######  Load on Carto
 
 Points  World Populated places 
 (http://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-populated-places/)
@@ -13,7 +13,7 @@ Polygons 	Drought in the US
 (http://droughtmonitor.unl.edu/Data/GISData.aspx)
 
 
-# Perform the following SQL query
+###### Perform the following SQL query
 ```sql
 SELECT 
   p.the_geom_webmercator,
@@ -28,11 +28,10 @@ ON
   ST_Intersects(d.the_geom, p.the_geom)
 ```
 ----------------------------------------------------------------------------------------------------------
-
 And create a map based on the new attribute classification 
+----------------------------------------------------------------------------------------------------------
 
-
-# Perform the following SQL query
+######  Perform the following SQL query
 ```sql
 SELECT
   d.dm::int As severity,

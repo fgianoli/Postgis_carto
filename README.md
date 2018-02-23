@@ -14,7 +14,7 @@ Polygons 	Drought in the US
 
 
 # Perform the following SQL query
-----------------------------------------------------------------------------------------------------------
+```sql
 SELECT 
   p.the_geom_webmercator,
   CASE WHEN ST_Intersects(d.the_geom, p.the_geom) THEN 'Intersects' ELSE 'Doesn''t' END As classification,
@@ -26,14 +26,14 @@ LEFT JOIN
   usdm_20180213 As d
 ON 
   ST_Intersects(d.the_geom, p.the_geom)
-
+```
 ----------------------------------------------------------------------------------------------------------
 
 And create a map based on the new attribute classification 
 
 
 # Perform the following SQL query
-----------------------------------------------------------------------------------------------------------
+```sql
 SELECT
   d.dm::int As severity,
   count(*) As num_intersecting,
@@ -48,4 +48,4 @@ ON
 GROUP BY 
   d.the_geom, d.the_geom_webmercator, d.dm, d.cartodb_id
 
-----------------------------------------------------------------------------------------------------------
+```
